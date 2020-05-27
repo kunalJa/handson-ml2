@@ -1,0 +1,87 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{enumitem}
+\usepackage[small]{titlesec}
+\titlespacing*{\section}
+{0pt}{2\baselineskip}{1\baselineskip}
+
+\begin{document}
+	\title{Chapter 1: The Machine Learning Landscape \\
+	\large Exercises}
+	\author{Kunal Jain}
+	\date{}
+	\maketitle
+	\section{How Would you define Machine Learning?}
+	Machine Learning is a class of software engineering wherein the system being produced is able to "learn" from data. To learn from data implies that the system is able to improve along some metric given new data points and a function to measure performance.
+	
+	\section{List four classes of problems suited for a Machine Learning solution.}
+	\begin{itemize}[leftmargin=*]
+		\item Problems that require a lot ($\gg$100) of hand tuning or conditionals
+		\item Problems where we do not yet know the optimal solution
+		\item Problems with rapidly changing environments and rules
+		\item Deriving insights from data
+	\end{itemize}
+
+	\section{What is a labeled training set?}
+	A training set is a subset of the total data accumulated reserved to be used in the training of a Machine Learning model. The training set is called "labeled" if each instance of the set is marked with a specific classifier describing the solution class of the instance to the model.
+	
+	\section{What are the two most common supervised tasks?}
+	\begin{itemize}[leftmargin=*]
+		\item Classification of new instances
+		\item Prediction of features given an instance
+	\end{itemize}
+
+	\section{What are four common unsupervised tasks?}
+	\begin{itemize}[leftmargin=*]
+		\item Clustering data based on similarity over some feature axes
+		\item Visualization
+		\item Dimension reduction of the perceived pertinent features in the data set
+		\item Association rule learning
+	\end{itemize}
+
+	\section{What type of Machine Learning algorithm would you consider using to build a robot that can walk on various unknown terrain?}
+	I would consider using an unsupervised reinforcement learning model.
+	
+	\section{What type of algorithm would you consider using to segment your customers into multiple groups?}
+	I would consider using a clustering algorithm like K-nearest means to segment my customer base.
+	
+	\section{Is spam detection a supervised or unsupervised learning problem?}
+	Spam detection is traditionally a online (incrementally trained based on telemetry), instance-based (finding a measure of similarity between spam emails), supervised learning problem.
+	
+	\section{What is online learning?}
+	Online learning describes the method of continuing to update the model based on new data. In an online learning system, new data is considered and added to the model's understanding on the fly instead of having to rebuild the entire model and reconsider both the new and old data. This helps in learning from large amounts of data that arrive quickly and continuously.
+	
+	\section{What is out-of-core learning?}
+	Out-of-core learning is an online method of digesting the data as a stream (or in batches) instead of all at once. This allows the model to handle large quantities of data that may not fit in the program memory.
+	
+	\section{What type of learning algorithm relies on a similarity measure to make predictions?}
+	Instance based learning relies on a similarity measure between instances to make predictions.
+	
+	\section{What is the difference between a model parameter and a learning algorithm's hyperparameter?}
+	A model parameter or feature is a perceived dimension of the data set whereas an algorithm's hyperparameter configures qualities of the algorithm itself, e.g. the number of clusters to group by in k-means clustering.
+	
+	\section{What do model-based learning algorithms search for? What is the most common strategy they use to succeed? How do they make predictions?}
+	Model-based learning algorithms search for optimal values to the model parameters in order to generalize the model to accurately accommodate new instances. The most common strategy they employ is to minimize an n-dimensional cost function (gradient descent?) by seeing how accurately the test data is represented based on the current model. They make predictions by considering where an instance's other n-k dimensions lie given k values for its features.
+	
+	\section{What are the four main challenges in Machine Learning?}
+	\begin{itemize}[leftmargin=*]
+		\item Not enough data
+		\item Low quality data
+		\item Data that obfuscates or misconstrues reality
+		\item overfitting or underfitting to the training data set
+	\end{itemize}
+
+	\section{If your model performs great on the training data but generalizes poorly to new instances, what happened? How can you resolve this issue?}
+	This situation indicates that our model is being overfitted to the training data. The model is too complex to generalize to new instances well. A way to resolve this issue is to simplify the model we are using (regularizing, feature reduction, new algorithm).
+	
+	\section{What is a test set and why would you want to use it?}
+	A test set is a subset of the total data accumulated used to estimate the error the model will make on new instances before the model is launched in production.
+	
+	\section{What is the purpose of a validation set?}
+	A validation set is used to eliminate the overfitting of the model to the test set. We train models with different hyperparameters comparing their error on the validation set. You then run a final test against the test set to ensure the model will work well in production.
+	
+	\section{What is the train-dev-set, when do you need it, and how do you use it?}
+	The train-dev-set is a portion of the training data set that is not used in training but reserved for after the model has been trained against the test set. It is used when you believe that the test set and the validation set may have significant differences in either features or data quality. It adds another check against overfitting and against using data that is not representative of the data at large.
+	
+	\section{What can go wrong if you tune for hyperparameters in the test set?}
+	As we mentioned earlier, tuning for hyperparameters in the test set can lead to overfitting on the test set.
+\end{document}
